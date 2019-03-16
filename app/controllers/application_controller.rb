@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  # ----- add these lines here: -----
-
   # Make the current_user method available to views also, not just controllers:
   helper_method :current_user
   
@@ -11,6 +9,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  # ----- end of added lines -----
-  
+  def authorize
+    redirect_to login_path, alert: 'You must be logged in to access this page.' if current_user.nil?
+  end
 end
