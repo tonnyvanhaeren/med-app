@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
+    @page_title = "Login"
     # No need for anything in here, we are just going to render our
     # new.html.erb AKA the login page
   end
