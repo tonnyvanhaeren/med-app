@@ -1,0 +1,18 @@
+body {
+  margin-top: 65px;
+}
+
+hr {
+  border-top: 1px solid wheat;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color:#f0ad4e;
+  opacity: 1;
+  font-style: italic; 
+}
+
+.is-invalid-field {
+  font-style: italic;
+  color: orange;
+}
