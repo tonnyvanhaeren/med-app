@@ -1,0 +1,18 @@
+<ul class="navbar-nav ml-auto">
+  <% if current_user %>
+    
+    <li class="nav-item">
+        <%= link_to( current_user.fullname , edit_user_path( current_user.id ), :class => 'nav-link')%>
+    </li>
+    <li class="nav-item">
+        <%= link_to("Sign Out", destroy_user_session_path, :class => 'nav-link', method: 'delete')%>
+    </li>
+  <% else %>
+    <li class="nav-item">
+        <%= link_to("Register", new_user_registration_path, :class => 'nav-link')%>
+    </li>
+    <li class="nav-item">
+        <%= link_to("Sign In", new_user_session_path, :class => 'nav-link')%>
+    </li>
+  <% end %>
+</ul>
