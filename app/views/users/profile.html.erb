@@ -1,0 +1,39 @@
+<%= form_for(@user, url: {action: "update_profile"}, :method => 'Patch' )  do |f| %>
+  <div class="card ">
+    <div class="card-header h3 text-center">
+      User Profile
+    </div>
+
+    <div class="card-body bg-dark">
+
+    <% if @user.errors.full_messages.any? %>
+      <% @user.errors.full_messages.each do |error_message| %>
+        <%= error_message if @user.errors.full_messages.first == error_message %> <br />
+      <% end %>
+    <% end %>
+
+      <div class="form-group col-md-3">
+        <%= f.label :email %>
+        <%= f.text_field(:email, placeholder: "Email", :readonly => true, :class => 'form-control form-control-sm') %>
+        <%= error_message_on(f.object, :email) %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :first_name %>
+        <%= f.text_field(:first_name, placeholder: "First Name", autofocus: true, :class => 'form-control form-control-sm') %>
+        <%= error_message_on(f.object, :first_name) %>
+      </div>
+      <div class="form-group col-md-5">
+        <%= f.label :last_name %>
+        <%= f.text_field(:last_name, placeholder: "Last Name", :class => 'form-control form-control-sm') %>
+        <%= error_message_on(f.object, :last_name) %>
+      </div>
+
+      <hr>
+
+      <div class="actions">
+        <%= f.submit "Update Profile", :class => 'btn btn-success btn-sm' %>
+        <%= link_to("Home", root_path, :class => "btn btn-info btn-sm") %>
+      </div>
+    </div>
+  </div>
+<% end %>

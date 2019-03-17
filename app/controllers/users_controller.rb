@@ -22,7 +22,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @page_title = "User Profile"
+    @user = User.find(params[:current_user_id])
+  end
+
+  def update_profile
+    @user = User.find(params[:current_user_id])
+
+    if @user.update_attributes(update_user_params)
+      flash[:notice] = 'User updated successfully'
+      redirect_to(root_path)
+    else
+      render('profile')
+    end
+  end
+
   private
+
+  def update_user_params
+    params.require(:user).permit(:first_name, :last_name)
+  end
 
   def user_params
     # strong parameters - whitelist of allowed fields #=> permit(:name, :email, ...)

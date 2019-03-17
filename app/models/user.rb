@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :last_name,   :presence => true,
             :length => { :maximum => 150 }
 
-  validates :password, :presence => { on: create }, :length => { minimum: 8 }
+  validates :password, :presence => true, :length => { minimum: 8 }, on: :create
 
   def fullname
     "#{self.first_name} #{self.last_name}" 
