@@ -5,14 +5,14 @@
         <%= link_to( current_user.fullname , profile_path(current_user.id) , :class => 'nav-link')%>
     </li>
     <li class="nav-item">
-        <%= link_to("Sign Out", logout_path, :class => 'nav-link', method: 'delete')%>
+        <%= link_to(icon('fas', 'sign-out-alt', 'Sign Out', class: 'text-white'), logout_path, :class => 'nav-link', method: 'delete')%>
     </li>
   <% else %>
     <li class="nav-item">
-        <%= link_to("Register", new_user_path, :class => 'nav-link')%>
+        <%= link_to(icon('fas', 'address-card', 'Register', class: 'text-white'), new_user_path, :class => 'nav-link')%>
     </li>
     <li class="nav-item">
-        <%= link_to("Sign In", login_path, :class => 'nav-link')%>
+        <%= link_to( icon('fas', 'sign-in-alt', 'Sign In', class: 'text-white') , login_path, :class => 'nav-link')%>
     </li>
   <% end %>
 </ul>

@@ -44,8 +44,8 @@
       <hr>
     
       <div class="actions">
-        <%= f.submit "Sign up", :class => 'btn btn-success btn-sm' %>
-        <%= link_to("Log in", '#', :class => "btn btn-info btn-sm") %>
+        <%= button_tag(icon('fas', 'address-card', 'Sign Up', class: 'text-secondary'), :class => 'btn btn-success btn-sm') %>
+        <%= link_to(icon('fas', 'sign-in-alt', 'Sign In', class: 'text-secondary'), login_path, :class => "btn btn-info btn-sm") %>
       </div>
     </div>
   </div>
